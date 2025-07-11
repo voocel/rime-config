@@ -36,7 +36,7 @@ app_options:
 style:
   # 选择皮肤，亮色与暗色主题
   color_scheme: wechat_light
-  color_scheme_dark: wechat_light
+  color_scheme_dark: wechat_dark
 
   # 以下是预设选项。如果皮肤没写，则使用这些属性；如果皮肤写了，使用皮肤的。
 
@@ -54,14 +54,14 @@ style:
   # Whether to use a translucent background. Only visible when background color is transparent
   translucency: false
 
-  corner_radius: 7
+  corner_radius: 10
   hilited_corner_radius: 0
-  border_height: -2
-  border_width: -2
+  border_height: 0
+  border_width: 0
   # Space between candidates in stacked layout
   line_spacing: 5
   # Space between preedit and candidates in non-inline mode
-  spacing: 8
+  spacing: 10
   # A number greater than 0 renders shadow around high-lighted candidate
   shadow_size: 3
   # Controls non-hililighted candidate background size, relative to highlighted
@@ -71,36 +71,179 @@ style:
   # format using %@ and %c is deprecated since 1.0, Squirrel 1.0
   # %@ is automatically expanded to "[candidate] [comment]"
   # and %c is replaced by "[label]"
-  candidate_format: '[label].[candidate][comment]'  # 候选项格式化
+  candidate_format: '[label]. [candidate] [comment]'  # 候选项格式化
 
   # adjust the base line of text
   #base_offset: 0
   font_face: 'JetBrainsMono Nerd Font, JetBrainsMono Nerd Font Mono, LXGW Bright, monospace'
-  font_point: 16
+  font_point: 21
   #label_font_face: 'Avenir'
-  #label_font_point: 12
+  label_font_point: 18
   #comment_font_face: 'Avenir'
-  #comment_font_point: 16
+  comment_font_point: 18
 
 
 # 皮肤列表
 preset_color_schemes:
+  macos_light:
+    name: "MacOS 浅色／MacOS Light"
+    font_face: "PingFangSC"          # 字体及大小
+    font_point: 16
+    label_font_face: "PingFangSC"    # 序号字体及大小
+    label_font_point: 12
+    comment_font_face: "PingFangSC"  # 注字体及大小
+    comment_font_point: 16
+    candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
+    candidate_list_layout: linear   # 候选排布：层叠 stacked | 行 linear
+    text_orientation: horizontal    # 行文向： 横 horizontal | 纵 vertical
+    inline_preedit: true            # 拼音位于： 候选框 false | 行内 true
+    translucency: false             # 磨砂： false | true
+    mutual_exclusive: false         # 色不叠加： false | true
+    border_height: 1                # 外边框 高
+    border_width: 1                 # 外边框 宽
+    corner_radius: 5                # 外边框 圆角半径
+    hilited_corner_radius: 5       # 选中框 圆角半径
+    surrounding_extra_expansion: 0 # 候选项背景相对大小？
+    shadow_size: 0                 # 阴影大小
+    line_spacing: 5                # 行间距
+    base_offset: 0                 # 字基高
+    alpha: 1                       # 透明度，0~1
+    spacing: 10                    # 拼音与候选项之间的距离 （inline_preedit: false）
+    color_space: srgb                       # 色彩空间： srgb | display_p3
+    back_color: 0xFFFFFF                    # 底色
+    hilited_candidate_back_color: 0xD75A00  # 选中底色
+    label_color: 0x999999                   # 序号颜色
+    hilited_candidate_label_color: 0xFFFFFF # 选中序号颜色
+    candidate_text_color: 0x3c3c3c          # 文字颜色
+    hilited_candidate_text_color: 0xFFFFFF  # 选中文字颜色
+    comment_text_color: 0x999999            # 注颜色
+    hilited_comment_text_color: 0xFFFFFF    # 选中注颜色
+    text_color: 0x424242                    # 拼音颜色 （inline_preedit: false）
+    hilited_text_color: 0xFFFFFF            # 选中拼音颜色 （inline_preedit: false）
+    candidate_back_color: 0xFFFFFF          # 候选项底色
+    # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
+    hilited_back_color: 0xD75A00            # 选中拼音底色 （inline_preedit: false）
+    border_color: 0xFFFFFF                  # 外边框颜色
+  
+  macos_dark:
+    name: "MacOS 深色／MacOS Dark"
+    font_face: "PingFangSC"          # 字体及大小
+    font_point: 16
+    label_font_face: "PingFangSC"    # 序号字体及大小
+    label_font_point: 12
+    comment_font_face: "PingFangSC"  # 注字体及大小
+    comment_font_point: 16
+    candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
+    candidate_list_layout: linear   # 候选排布：层叠 stacked | 行 linear
+    text_orientation: horizontal    # 行文向： 横 horizontal | 纵 vertical
+    inline_preedit: true            # 拼音位于： 候选框 false | 行内 true
+    translucency: false             # 磨砂： false | true
+    mutual_exclusive: false         # 色不叠加： false | true
+    border_height: 1                # 外边框 高
+    border_width: 1                 # 外边框 宽
+    corner_radius: 5                # 外边框 圆角半径
+    hilited_corner_radius: 5       # 选中框 圆角半径
+    surrounding_extra_expansion: 0 # 候选项背景相对大小？
+    shadow_size: 0                 # 阴影大小
+    line_spacing: 5                # 行间距
+    base_offset: 0                 # 字基高
+    alpha: 1                       # 透明度，0~1
+    spacing: 10                    # 拼音与候选项之间的距离 （inline_preedit: false）
+    color_space: srgb                       # 色彩空间： srgb | display_p3
+    back_color: 0x1f1e2d                  # 底色
+    hilited_candidate_back_color: 0xD75A00  # 选中底色
+    label_color: 0x999999                   # 序号颜色
+    hilited_candidate_label_color: 0xFFFFFF # 选中序号颜色
+    candidate_text_color: 0xe9e9ea          # 文字颜色
+    hilited_candidate_text_color: 0xFFFFFF  # 选中文字颜色
+    comment_text_color: 0x999999            # 注颜色
+    hilited_comment_text_color: 0x999999    # 选中注颜色
+    text_color: 0x808080                    # 拼音颜色 （inline_preedit: false）
+    hilited_text_color: 0xFFFFFF            # 选中拼音颜色 （inline_preedit: false）
+    candidate_back_color: 0x1f1e2d          # 候选项底色
+    # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
+    hilited_back_color: 0xD75A00            # 选中拼音底色 （inline_preedit: false）
+    border_color: 0x050505                  # 外边框颜色
+  
   wechat_light:
-    name: 微信键盘浅色
-    horizontal: true # true横排，false竖排
-    back_color: 0xFFFFFF # 候选条背景色tiao xi
-    border_height: 0 # 窗口上下高度，大于圆角半径才生效
-    border_width: 8 # 窗口左右宽度，大于圆角半径才生效
-    # candidate_format: "[label].[candidate] [comment]" # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
-    comment_text_color: 0x999999 # 拼音等提示文字颜色
-    corner_radius: 5 # 窗口圆角
-    hilited_corner_radius: 5 # 高亮圆角
-    font_point: 16 # 候选字大小
-    hilited_candidate_back_color: 0x75B100 # 第一候选项背景色
-    hilited_candidate_text_color: 0xFFFFFF # 第一候选项文字颜色
-    label_font_point: 12 # 候选编号大小
-    text_color: 0x424242 # 拼音行文字颜色
-    inline_preedit: true # 拼音位于： 候选框 false | 行内 true
+    name: "微信浅色／Wechat Light"
+    font_face: "PingFangSC"          # 字体及大小
+    font_point: 16
+    label_font_face: "PingFangSC"    # 序号字体及大小
+    label_font_point: 13
+    comment_font_face: "PingFangSC"  # 注字体及大小
+    comment_font_point: 16
+    candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
+    candidate_list_layout: linear   # 候选排布：层叠 stacked | 行 linear
+    text_orientation: horizontal    # 行文向： 横 horizontal | 纵 vertical
+    inline_preedit: true            # 拼音位于： 候选框 false | 行内 true
+    translucency: false             # 磨砂： false | true
+    mutual_exclusive: false         # 色不叠加： false | true
+    border_height: 1                # 外边框 高
+    border_width: 1                 # 外边框 宽
+    corner_radius: 5                # 外边框 圆角半径
+    hilited_corner_radius: 5       # 选中框 圆角半径
+    surrounding_extra_expansion: 0 # 候选项背景相对大小
+    shadow_size: 0                 # 阴影大小
+    line_spacing: 5                # 行间距
+    base_offset: 0                 # 字基高
+    alpha: 1                       # 透明度，0~1
+    spacing: 10                    # 拼音与候选项之间的距离 （inline_preedit: false）
+    color_space: srgb                       # 色彩空间： srgb | display_p3
+    back_color: 0xFFFFFF                    # 底色
+    hilited_candidate_back_color: 0x79af22  # 选中底色
+    label_color: 0x999999                   # 序号颜色
+    hilited_candidate_label_color: 0xFFFFFF # 选中序号颜色
+    candidate_text_color: 0x3c3c3c          # 文字颜色
+    hilited_candidate_text_color: 0xFFFFFF  # 选中文字颜色
+    comment_text_color: 0x999999            # 注颜色
+    hilited_comment_text_color: 0x999999    # 选中注颜色
+    text_color: 0x424242                    # 拼音颜色 （inline_preedit: false）
+    hilited_text_color: 0x999999            # 选中拼音颜色 （inline_preedit: false）
+    candidate_back_color: 0xFFFFFF          # 候选项底色
+    # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
+    hilited_back_color: 0x79af22            # 选中拼音底色 （inline_preedit: false）
+    border_color: 0xFFFFFF                  # 外边框颜色
+
+  wechat_dark:
+    name: "微信深色／Wechat Dark"
+    font_face: "PingFangSC"          # 字体及大小
+    font_point: 16
+    label_font_face: "PingFangSC"    # 序号字体及大小
+    label_font_point: 13
+    comment_font_face: "PingFangSC"  # 注字体及大小
+    comment_font_point: 16
+    candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
+    candidate_list_layout: linear   # 候选排布：层叠 stacked | 行 linear
+    text_orientation: horizontal    # 行文向： 横 horizontal | 纵 vertical
+    inline_preedit: true            # 拼音位于： 候选框 false | 行内 true
+    translucency: false             # 磨砂： false | true
+    mutual_exclusive: false         # 色不叠加： false | true
+    border_height: 1                # 外边框 高
+    border_width: 1                 # 外边框 宽
+    corner_radius: 5                # 外边框 圆角半径
+    hilited_corner_radius: 5       # 选中框 圆角半径
+    surrounding_extra_expansion: 0 # 候选项背景相对大小？
+    shadow_size: 0                 # 阴影大小
+    line_spacing: 5                # 行间距
+    base_offset: 0                 # 字基高
+    alpha: 1                       # 透明度，0~1
+    spacing: 10                    # 拼音与候选项之间的距离 （inline_preedit: false）
+    color_space: srgb                       # 色彩空间： srgb | display_p3
+    back_color: 0x151515                    # 底色
+    hilited_candidate_back_color: 0x79af22  # 选中底色
+    label_color: 0x999999                   # 序号颜色
+    hilited_candidate_label_color: 0xFFFFFF # 选中序号颜色
+    candidate_text_color: 0xbbbbbb          # 文字颜色
+    hilited_candidate_text_color: 0xFFFFFF  # 选中文字颜色
+    comment_text_color: 0x999999            # 注颜色
+    hilited_comment_text_color: 0xFFFFFF    # 选中注颜色
+    text_color: 0xbbbbbb                    # 拼音颜色 （inline_preedit: false）
+    hilited_text_color: 0x999999            # 选中拼音颜色 （inline_preedit: false）
+    candidate_back_color: 0x151515          # 候选项底色
+    # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
+    hilited_back_color: 0x79af22            # 选中拼音底色 （inline_preedit: false）
+    border_color: 0x292929                  # 外边框颜色
 
   # 对 purity_of_form 略微调整颜色，让色彩更柔和点，补全其他选项和注释
   purity_of_form_custom:
@@ -155,6 +298,8 @@ app_options:
       ascii_mode: true
   com.apple.Terminal: # 终端
       ascii_mode: true
+  com.googlecode.iterm2: # iterm2
+      ascii_mode: true
   com.microsoft.VSCode: # Visual Studio Code
       ascii_mode: true
       ascii_punct: true # 中文状态输出英文标点(半角)
@@ -172,5 +317,6 @@ app_options:
       ascii_mode: true
   com.jetbrains.intellij: # idea
       ascii_mode: true
+      ascii_punct: true
   org.alacritty: # alacritty
       ascii_mode: true
