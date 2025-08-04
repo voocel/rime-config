@@ -19,6 +19,7 @@
 先安装rime输入法管理器
 ```
 curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | bash
+进入plum目录, 然后执行
 bash rime-install voocel/rime-config:others/recipes/full
 ```
 
