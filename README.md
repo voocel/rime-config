@@ -19,7 +19,7 @@
 先安装rime输入法管理器
 ```
 curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | bash
-bash rime-install iDvel/rime-ice:others/recipes/full
+bash rime-install voocel/rime-config:others/recipes/full
 ```
 
 6. 然后点击鼠鬚管 输入法，选择重新部署 即可
@@ -75,3 +75,18 @@ Rime 的 YAML 配置文件需要严格的缩进，使用两个空格缩进，不
 拼音	pin yin 1234
 拼音<Tab>pin<Space>yin<Tab>1234
 ```
+
+3. 中英文切换配置
+鼠须管输入法是自带英文输入, 使用shift键切换. 如果想使用Mac标准的caps lock键来切换,需要做以下修改:
+- 首先去系统设置里把这个“钩”取消掉
+
+![alt text](image-4.png)
+
+这样我们按caps lock就不会切换到系统自带的英文输入法了
+然后修改default.yaml
+
+![alt text](image-5.png)
+
+*注: 这个Caps_Lock从clear修改成commit_code的目的是有时候我们已经不小心在中文模式下输入了一段英文，我们不想切换到英文模式下重新输入，所以直接按”caps lock”就可以把已经打在输入法的英文直接打出来，不需要重新打了。*
+
+重新部署即可
